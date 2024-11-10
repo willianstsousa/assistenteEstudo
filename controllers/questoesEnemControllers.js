@@ -27,6 +27,12 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    const myModal = new bootstrap.Modal(
+      document.getElementById("staticBackdrop"),
+      {
+        backdrop: true,
+      }
+    );
     const questoesRoot = document.getElementById("questoesRoot");
     const formQuestoes = document.getElementById("formQuestoes");
     const sectionSelecaoAno = document.getElementById("sectionSelecaoAno");
@@ -110,6 +116,14 @@
       }
     }
 
+    function mostraLoading() {
+      myModal.show();
+    }
+
+    function escondeLoading() {
+      myModal.hide();
+    }
+
     navegacaoPosterior.addEventListener("click", async function () {
       if (countPaginaAtual < countPaginaTotal) {
         metadata.offset = countPaginaAtual * 50;
@@ -136,6 +150,7 @@
 
     formQuestoes.addEventListener("submit", async function (event) {
       event.preventDefault();
+      mostraLoading();
       //console.log(event);
       const anoProva = document.getElementById("ano").value;
       // const offset = document.getElementById("offset").value;
@@ -152,6 +167,7 @@
       metadata.hasMore = response.metadata.hasMore;
       countPaginaTotal = Math.ceil(metadata.total / 50);
       await montaGridQuestoes(response.questions);
+      escondeLoading();
     });
   });
 })();
