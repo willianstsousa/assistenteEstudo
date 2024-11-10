@@ -1,0 +1,32 @@
+#imgApresentacao{
+    max-width: 200px;
+    border-radius: 8px;
+    align-self: center;
+}
+
+.highlight {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.containerCardAcoes{
+    flex-wrap: wrap;
+    gap:16px;
+    justify-content: center;
+    transition: .5s;
+}
+
+.cardAcoes{
+    flex-direction: column;
+    text-align: center;
+    cursor: pointer;
+}
+
+.cardAcoes:hover{
+    transform: scale(1.05);
+}
+
+.linkNormalize{
+    text-decoration: none;
+    color: inherit;
+}

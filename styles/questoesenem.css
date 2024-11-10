@@ -1,0 +1,8 @@
+.selecionado{
+    cursor: pointer;
+    transition: .3s;
+}
+.selecionado:hover{
+    background: var(--bs-blue);
+    color: var(--bs-gray-300);
+}
